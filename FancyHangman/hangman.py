@@ -71,8 +71,8 @@ def valid(c):
 def userInput(mistakeCounter,hiddenWord):
 
     displayHangman(mistakeCounter)
-    print("".join(hiddenWord),"\n")
-    incomingChar = str(input("Enter English Lowercase Character: "))
+    print("Guess the word:","".join(hiddenWord),"\n")
+    incomingChar = str(input("Enter the latter: "))
     if(valid(incomingChar)):
         return incomingChar
     else:
