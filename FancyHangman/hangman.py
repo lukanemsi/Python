@@ -10,6 +10,7 @@ def displayIntro():
         lineCounter += 1
     hangmanFile.close()
 
+
 def displayEnd(result):
     hangmanFile = open("hangman-ascii.txt","r")
     wholeText = hangmanFile.readlines()
@@ -22,7 +23,7 @@ def displayEnd(result):
             print(wholeText[i],end="")
     hangmanFile.close()
 
-            
+        
 def displayHangman(state):
     hangmanFile = open("hangman-ascii.txt","r")
     wholeText = hangmanFile.readlines()
@@ -51,7 +52,8 @@ def displayHangman(state):
         for i in range(89,98):
             print(wholeText[i],end="") 
     hangmanFile.close()
-            
+
+
 def getWord():
     hangmanWordsFile = open("hangman-words.txt","r")
     words = hangmanWordsFile.readlines()
@@ -67,6 +69,7 @@ def valid(c):
     if(c in validAlphabet):
         return True
     return False
+
 
 def userInput(mistakeCounter,hiddenWord):
 
@@ -86,6 +89,7 @@ def play():
     hiddenWord = ["_"] * len(randomWord)
     while(True):
         if(mistakeCounter == 0):
+            displayHangman(mistakeCounter)
             print("\nHidden word was: " + randomWord)
             return False
         if( not ("_" in "".join(hiddenWord))):
@@ -99,7 +103,8 @@ def play():
                     hiddenWord[i] = incomingChar
         else:
             mistakeCounter -= 1
-            
+
+
 def hangman():
     while True:
         displayIntro()
@@ -108,6 +113,7 @@ def hangman():
         yerOrNo = str(input("\nDo you want to play again? (yes/no) \n"))
         if(yerOrNo.lower() == "no"):
             return
+
         
 if __name__ == "__main__":
     hangman()
