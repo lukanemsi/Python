@@ -14,6 +14,7 @@ def encryptIndexSubstitutionCipher(text):
             counter += 1  
     return numericValue
 
+
 def decryptIndexSubstitutionCipher(text):
     mainCode = generateCodeForCipher()
     value = ""
